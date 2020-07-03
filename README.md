@@ -10,7 +10,7 @@
   5. 下班,漫长的地铁 √
 
 ```java
-Person p = new Proson();
+Person p = new Person();
 p.setName("will");
 p.setAge(24);
 System.out.println(p.doSomething());
