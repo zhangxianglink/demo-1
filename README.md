@@ -13,7 +13,7 @@
 Person p = new Person();
 p.setName("will");
 p.setAge(24);
-System.out.println(p.doSomething());
+System.out.print(p.doSomething());
 ```
 
 我想做什么(以下选择不分先后)
