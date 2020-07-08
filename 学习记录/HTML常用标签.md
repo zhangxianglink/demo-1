@@ -116,7 +116,7 @@
 
    > ```html
    > 常用属性:
-   > <form action="http://google.com" method="post"autoautocomplete="on" encrypt = "application/json">
+   > <form action="http://google.com" method="post" autocomplete="on" encrypt = "application/json">
    >     用户名: <input type="text" name="username" id=""><br>
    >     密码: <input type="password" name="password" id=""><br>
    >     <button type="submit"><strong>提交</strong></button>
@@ -128,6 +128,9 @@
    >    multipart/form-data  主要用于文件上传。
    >    application/json	作为请求头告诉服务端消息主体是序列化的JSON字符串.
    >    text/plain 空格转换为 “+” 加号，但不对特殊字符编码。
+   > 4> autocomplete  默认为on，其含义代表是否让浏览器自动记录输入的值。使用方式(name ="username")
+   > 事件: onsubmit 数据提交触发
+   > 注意事项: form里面的input要有name, form里面要有一个type=submit才能触发onsubmit事件
    > ```
    >
    > 
