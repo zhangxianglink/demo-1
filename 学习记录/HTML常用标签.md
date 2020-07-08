@@ -111,4 +111,23 @@
    >   </body>
    > ```
    >
+   
+4. form标签 : 用于定义表单向服务器提交数据
+
+   > ```html
+   > 常用属性:
+   > <form action="http://google.com" method="post"autoautocomplete="on" encrypt = "application/json">
+   >     用户名: <input type="text" name="username" id=""><br>
+   >     密码: <input type="password" name="password" id=""><br>
+   >     <button type="submit"><strong>提交</strong></button>
+   > </form>
+   > 1> action 指向提交的服务器路径
+   > 2> method 提交方式get/post
+   > 3> encrypt 指定POST提交方式, 使用 浏览器的MIMI类型
+   >    application/x-www-form-urlencoded  是默认类型,控件名和控件值都要转义.
+   >    multipart/form-data  主要用于文件上传。
+   >    application/json	作为请求头告诉服务端消息主体是序列化的JSON字符串.
+   >    text/plain 空格转换为 “+” 加号，但不对特殊字符编码。
+   > ```
+   >
    > 
