@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      img {
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <img id="i" src="./16391-106.jpg" alt="图片加载失败" />
+    <script>
+      i.onload = function () {
+        console.log("图片加载成功");
+      };
+      i.onerror = function () {
+        console.log("图片 加载失败");
+        i.src = "./81179-106.jpg";
+      };
+    </script>
+  </body>
+</html>
