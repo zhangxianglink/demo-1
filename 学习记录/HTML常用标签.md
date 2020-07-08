@@ -68,47 +68,48 @@
    > 			4> th (table head)
    > 			4> td (table data)
    > <table> 块级容器元素,所有的表格内容都要放到这个标签里面.
+   > <caption> 表示表格的标题
    > <thead> <tbody> <tfoot> 块级容器元素,书写式保证先后顺序.
    > <tr> 表示表格中一行
    > <th> <td> 写在tr标签内部,分别表示标题单元格,数据单元格
    > 代码如下:
-   >       <table>
-   >       <thead>
-   >         <tr>
-   >           <th>成绩单</th>
-   >           <th>语文</th>
-   >           <th>数学</th>
-   >           <th>英语</th>
-   >         </tr>
-   >       </thead>
-   >       <tbody>
-   >         <tr>
-   >           <th>Leo Wang</th>
-   >           <td>45</td>
-   >           <td>95</td>
-   >           <td>124</td>
-   >         </tr>
-   >         <tr>
-   >           <th>Brown Li</th>
-   >           <td>45</td>
-   >           <td>95</td>
-   >           <td>124</td>
-   >         </tr>
-   >         <tr>
-   >           <th>Frank Yang</th>
-   >           <td>45</td>
-   >           <td>95</td>
-   >           <td>124</td>
-   >         </tr>
-   >       </tbody>
-   >       <tfoot>
-   >         <th>总分</th>
-   >         <td>250</td>
-   >         <td>250</td>
-   >         <td>250</td>
-   >       </tfoot>
-   >     </table>
-   >   </body>
+   >    <table>
+   >    <thead>
+   >      <tr>
+   >        <th>成绩单</th>
+   >        <th>语文</th>
+   >        <th>数学</th>
+   >        <th>英语</th>
+   >      </tr>
+   >    </thead>
+   >    <tbody>
+   >      <tr>
+   >        <th>Leo Wang</th>
+   >        <td>45</td>
+   >        <td>95</td>
+   >        <td>124</td>
+   >      </tr>
+   >      <tr>
+   >        <th>Brown Li</th>
+   >        <td>45</td>
+   >        <td>95</td>
+   >        <td>124</td>
+   >      </tr>
+   >      <tr>
+   >        <th>Frank Yang</th>
+   >        <td>45</td>
+   >        <td>95</td>
+   >        <td>124</td>
+   >      </tr>
+   >    </tbody>
+   >    <tfoot>
+   >      <th>总分</th>
+   >      <td>250</td>
+   >      <td>250</td>
+   >      <td>250</td>
+   >    </tfoot>
+   >  </table>
+   > </body>
    > ```
    >
    
