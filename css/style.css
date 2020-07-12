@@ -1,0 +1,15 @@
+.content-box {
+    margin: 25px;
+    border: 1px solid red;
+    padding: 10px;
+    box-sizing: content-box;
+    width: 100px;
+}
+.border-box {
+    margin: 25px;
+    border: 1px solid red;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100px;
+}
+
