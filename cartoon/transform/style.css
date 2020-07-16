@@ -1,0 +1,20 @@
+.father {
+    border: 1px solid  red;
+    height: 60vh;
+    position: relative;
+  }
+  
+.son {
+    border: 1px solid blue;
+    width: 100px;
+    height: 100px;
+    transition: all 1s;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color: red;
+  }
+  
+.son:hover{
+    transform: translate(-50%,-50%)
+  }
