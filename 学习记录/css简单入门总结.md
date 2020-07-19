@@ -4,7 +4,11 @@
 
 1. > **层叠样式表** (Cascading Style Sheets，缩写为 **CSS**），是一种 [样式表](https://developer.mozilla.org/zh-CN/docs/DOM/stylesheet) 语言，用来描述 [HTML](https://developer.mozilla.org/zh-CN/docs/HTML) 或 [XML](https://developer.mozilla.org/zh-CN/docs/XML_介绍)（包括如 [SVG](https://developer.mozilla.org/zh-CN/docs/SVG)、[MathML](https://developer.mozilla.org/zh-CN/docs/Web/MathML)、[XHTML](https://developer.mozilla.org/zh-CN/docs/XHTML) 之类的 XML 分支语言）文档的呈现。CSS 被分为不同等级：CSS1 现已废弃， CSS2.1 是推荐标准， [CSS3](https://developer.mozilla.org/zh-CN/docs/CSS/CSS3) 分成多个小模块且正在标准化中。
 
+   
+
 2. > CSS 在使用上可以 , 多个元素被同一选择器选中, 不同选择器选择同一元素, 多个css文件同时使用. 这就导致css的运用十分灵活.
+
+   
 
 3. >文档流: 
    >
@@ -15,17 +19,23 @@
    >**inline-block** :  排序从左到右, 宽度模仿inline, 高度模仿block,可以设置宽高.
 
 4. > 盒子模型:
-   >
+   
+   
+   
    > content box = 元素大小
-   >
+>
    > border box =  内容 + padding + border
-
+   
+   
+   
 5. > div的分层 : 
    >
    > 由下而上, backgroud. border, 块级子元素, 浮动元素, 内联子元素, 定位元素
    >
    > positon
 
+   
+   
 6. > 浏览器渲染原理
    >
    > 1. 根据html构建DOM
@@ -34,7 +44,17 @@
    > 4. Layout 布局 (文档流,盒模型,计算大小,和位置 )
    > 5. Paint 绘制(边框颜色,文字色彩,阴影等)
    > 6. Compose 合成 (根据层叠关系展示画面)
-
+>
+   > **注意**: 需要了解的是，这些步骤并不一定要按顺序完成。 
+   >
+   >  例如:  修改背景色, 跳过Layout, 进行后续操作;
+   >
+   > ​           改变transform, 会跳过Layout, Paint
+   >
+   > 选择合适的属性,可以提高css的性能.
+   
+   
+   
 7. > **transform**属性允许你旋转，缩放，倾斜或平移给定元素(不支持inline)
    >
    > ```css
