@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#header{
+    display: flex;
+    height: 2.5em;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(241, 107, 107);
+}
+img{
+    max-width: 100%;
+    vertical-align: middle;
+}
+.header-png{
+    width: 1.2em;
+    height: 1.2em;
+}
+.select{
+    text-align: left;
+    flex: 1 0 36%;
+}
+.select>img{
+    margin-left: 5%;
+}
+.books{
+    text-align: center;
+    flex: 1 0 13%;
+    color: white;
+}
+.books:hover{
+    transform: scale(1.2);
+    color: yellow;
+}
+.follow{
+    text-align: center;
+    flex: 1 0 13%;
+    color: white;
+}
+.follow:hover{
+    transform: scale(1.2);
+    color: yellow;
+}
+.query{
+    text-align: right;
+    flex: 1 0 24%;
+
+}
+.setting{
+    flex: 1 0 11%;
+    text-align: center;
+    color: white;
+}
+
+#body{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+#body>div{
+    height: 86px;
+    border: 1px solid brown;
+}
+.ad-bgc{
+    height: 90px;
+    background-color: rgba(240, 179, 154,0.9);
+}
+.ad{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.ad>div>p {
+    font-size: 12px;
+    line-height: 1.7em;
+}
+.add-red{
+    color: rgb(241, 107, 107);
+}
+.add-gray{
+    color: rgb(151, 144, 144);
+}
+.ad-data:first-child{
+    margin: 2%;
+    flex: 0 1 22%;
+}
+.ad-data:nth-child(2){
+    flex: 0 1 50%;
+}
+.ad-data:nth-child(3){
+    flex: 0 1 28%;
+}
+.ling{
+    margin-left: 10%;
+    margin-bottom: 20%;
+    display: flex;
+    position: relative;
+}
+.ling-data{
+    text-align: center;
+    background-color: red;
+    color: white;
+    height: 26px;
+    position: absolute;
+    z-index: 1;
+}
+.ling-left{
+    position: absolute;
+    left: -14%;
+    height: 26px;
+    width: 26px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 0;
+}
+.ling-right{
+    position: absolute;
+    right: 26%;
+    height: 26px;
+    width: 26px;
+    background-color: red;
+    border-radius: 50%;
+}
