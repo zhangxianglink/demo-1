@@ -58,11 +58,9 @@ img{
 #body{
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
 }
 #body>div{
     height: 86px;
-    border: 1px solid brown;
 }
 .ad-bgc{
     height: 90px;
@@ -123,4 +121,39 @@ img{
     width: 26px;
     background-color: red;
     border-radius: 50%;
+}
+#body{
+    background-color: rgb(250, 230, 200);
+}
+.book{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.book>div>p {
+    font-size: 12px;
+    line-height: 1.7em;
+}
+.book-img{
+    margin: 2%;
+    flex: 0 1 22%;
+}
+.book-name{
+    flex: 0 1 50%;
+}
+.book-setting{
+    align-self: end;
+    flex: 0 1 28%;
+}
+.book-setting>strong{
+    margin-left: 74%;
+    color: rgb(58, 53, 53);
+}
+#bottom{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid blue;
+}
+.bottom-icon{
+    border: 1px solid red;
 }
