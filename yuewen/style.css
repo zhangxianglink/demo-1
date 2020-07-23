@@ -107,7 +107,7 @@ img{
 }
 .ling-left{
     position: absolute;
-    left: -14%;
+    right: 90%;
     height: 26px;
     width: 26px;
     background-color: red;
@@ -116,7 +116,7 @@ img{
 }
 .ling-right{
     position: absolute;
-    right: 26%;
+    right: 14%;
     height: 26px;
     width: 26px;
     background-color: red;
@@ -150,10 +150,17 @@ img{
     color: rgb(58, 53, 53);
 }
 #bottom{
+    background-color: rgb(236, 229, 213);
     display: flex;
     justify-content: space-around;
-    border: 1px solid blue;
 }
 .bottom-icon{
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+.bottom-icon>img{
+    height: 24px;
 }
