@@ -10,6 +10,8 @@
     justify-content: space-between;
     align-items: center;
     background-color: rgb(241, 107, 107);
+	position: sticky;
+    top: 0px;
 }
 img{
     max-width: 100%;
@@ -92,35 +94,16 @@ img{
     flex: 0 1 28%;
 }
 .ling{
-    margin-left: 10%;
-    margin-bottom: 20%;
-    display: flex;
-    position: relative;
+	margin-right: 9%;
 }
 .ling-data{
     text-align: center;
     background-color: red;
+	border-radius: 15px; 
     color: white;
     height: 26px;
-    position: absolute;
-    z-index: 1;
-}
-.ling-left{
-    position: absolute;
-    right: 90%;
-    height: 26px;
-    width: 26px;
-    background-color: red;
-    border-radius: 50%;
-    z-index: 0;
-}
-.ling-right{
-    position: absolute;
-    right: 14%;
-    height: 26px;
-    width: 26px;
-    background-color: red;
-    border-radius: 50%;
+	width: 100%;
+	font-size: 14px;
 }
 #body{
     background-color: rgb(250, 230, 200);
@@ -153,6 +136,8 @@ img{
     background-color: rgb(236, 229, 213);
     display: flex;
     justify-content: space-around;
+	position: sticky;
+    bottom: 0px;
 }
 .bottom-icon{
     display: flex;
@@ -163,4 +148,21 @@ img{
 }
 .bottom-icon>img{
     height: 24px;
+}
+.find{
+	display: flex;
+	color: red;
+	font-size: 14px;
+	height: 54px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(250, 230, 200);
+}
+.find-more{
+	border: 1px solid red;
+	box-sizing: content-box;
+	padding: 0.1em 0.3em;
+    border-radius: 12px;
+	background-color: white;
 }
