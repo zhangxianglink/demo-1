@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas绘图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #canvas{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+    var canvas = document.getElementById('canvas');
+    var lastAddress;
+    canvas.width = document.documentElement.clientWidth;
+    canvas.height = document.documentElement.clientHeight; 
+    console.log('屏幕宽高'+canvas.width+':'+canvas.height);
+    // 判断当前设备是否支持触屏
+    var isTouchDevice = 'ontouchstart' in document.documentElement;
+    var ctx = canvas.getContext('2d');
+    if(isTouchDevice){
+        console.log('开始手机模式');
+        canvas.ontouchstart= (e) => {
+            let x = e.touches[0].clientX
+            let y = e.touches[0].clientY
+            lastAddress = [x, y];
+        }
+        canvas.ontouchmove = (e) => {
+            let x = e.touches[0].clientX
+            let y = e.touches[0].clientY
+            drawLine(lastAddress[0],lastAddress[1],x,y)
+            lastAddress = [x, y];
+        }
+    } else {
+        let run = false;
+        canvas.onmousedown = (e) =>{
+            run = true;
+            lastAddress = [e.clientX, e.clientY];
+            console.log(run);
+        }
+        canvas.onmouseup = (e) =>{
+            run = false;
+            console.log(run);
+        }
+        canvas.onmousemove = (e) =>{         
+            if(run === true){
+                drawLine(lastAddress[0],lastAddress[1],e.clientX,e.clientY)
+                lastAddress = [e.clientX, e.clientY];
+            }
+        }
+    }   
+    
+    function drawLine(x1,y1,x2,y2){
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineWidth = 12;
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = 'blue';
+        ctx.lineCap = 'round';
+        ctx.stroke();
+    }
+        
+    </script>
+</body>
+</html>
