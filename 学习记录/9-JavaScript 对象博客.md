@@ -132,5 +132,12 @@ JavaScript对象主要分为 Array Function Object, 它们是通过引用传递.
    const b = {};
    // 可以向对象赋值
    b['name'] = 'jack';
+
+   let const 共同处:
+   遵循块作用域
+   不可重复声明
+   必须先声明后使用
+   全局声明的 let , const 不会变成window的属性
+   for循环配合let 有奇效 (关于setTimeout()) 
    ```
    
