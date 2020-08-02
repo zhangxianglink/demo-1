@@ -10,7 +10,7 @@ JavaScript对象主要分为 Array Function Object, 它们是通过引用传递.
 原型:
      原型是无须重复声明的共有属性.一般无法修改,只能进行读取.
      每个对象都有一个隐藏属性指向原型,
-     
+
 	  __proto__和constructor属性是对象所独有的；
      prototype属性是函数所独有的，因为函数也是一种对象，所以函数也拥有__proto__和constructor属性。
 
@@ -68,6 +68,14 @@ JavaScript对象主要分为 Array Function Object, 它们是通过引用传递.
    ```javascript
    var obj = {'name':'x','age':24};
    obj['name'] = 'love';  //单个赋值
+
+   修改或新增对象属性,并返回该对象
+   const object1 = {};
+   Object.defineProperty(object1, 'property1', {
+   value: 42,
+   writable: false // 属性是否可以修改
+   });
+
    Object.assign(obj,{name:'yy',age:43}); //批量赋值
    修改共有属性: 无法通过自身修改,添加共有属性
    let obj={}, obj2{}
@@ -89,4 +97,40 @@ JavaScript对象主要分为 Array Function Object, 它们是通过引用传递.
    obj.hasOwnProperty('name') 只会在自身的属性中查找
    ```
 
+6. let 和 const
+   ```javascript
+    var 和 let 的不同之处在于后者是在编译时才初始化.
+   let声明的变量只在其声明的块或子块中可用，这一点，与var相似。
+   二者之间最主要的区别在于var声明的变量的作用域是整个封闭函数。
+
+   function letTest() {
+   let x = 1;
+   {
+     let x = 2;  // 不同的变量
+    console.log(x);  // 2
+   }
+   console.log(x);  // 1
+   }
+
+   function varTest() {
+   var x = 1;
+   {
+      var x = 2;  // 同样的变量!
+      console.log(x);  // 2
+   }
+   console.log(x);  // 2
+   }
+   
+   常量是块级作用域，很像使用 let 语句定义的变量。常量的值不能通过重新赋值来改变，并且不能重新声明。
+   所以需要声明时赋一个初始值.
+
+   const声明创建一个值的只读引用。但这并不意味着它所持有的值是不可变的，只是变量标识符不能重新分配。
+   一个常量不能和它所在作用域内的其他变量或函数拥有相同的名称。
+   const MY_ARRAY = [];
+   // 可以向数组填充数据
+   MY_ARRAY.push('A'); // ["A"]
+   const b = {};
+   // 可以向对象赋值
+   b['name'] = 'jack';
+   ```
    
