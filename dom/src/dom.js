@@ -97,14 +97,12 @@ window.dom = {
         }
     },
     //关于节点的操作
-    // 添加事件 ???
     on(node, eventName, fn){
         node.addEventListener(eventName,fn);
     },
     off(node, eventName, fn){
         node.removeEventListener(eventName,fn);
     },
-    //查找节点 ??
     find(selector, scope){
         return (scope || document).querySelectorAll(selector)
     },
@@ -117,7 +115,6 @@ window.dom = {
     siblings(node){
         return Array.from(node.parentNode.children).filter(e => e != node);
     },
-    // ??
     next(node){ 
         let x = node.nextSibling;
         while(x && x.nodeType === 3){
