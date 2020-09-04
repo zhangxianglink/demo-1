@@ -117,16 +117,86 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"main.js":[function(require,module,exports) {
-// jquery('.color').addClass('red').addClass('blue').addClass('green').each((a,b) => {console.log(`K:${b}  V:${a.innerText}`)});;
-// jquery('.color1').find('.child').addClass('second').end().addClass('end');
-// jquery('.child').parent().print();
-// jquery('.color1').children().print();
-// $('#test').find('.child').addClass('red');
-// $('#test').siblings().print();
-console.log($('#test').index());
-$('#test').next().print();
-$('#test').prev().print();
+})({"jquery.js":[function(require,module,exports) {
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+window.jquery = function (selectorFirst) {
+  var result;
+
+  if (typeof selectorFirst === 'string') {
+    result = document.querySelectorAll(selectorFirst);
+  } else if (selectorFirst instanceof Array) {
+    result = selectorFirst;
+  }
+
+  return {
+    addClass: function addClass(className) {
+      // 访问函数外部的变量,闭包
+      for (var index = 0; index < result.length; index++) {
+        result[index].classList.add(className);
+      } // 返回第1层引用.链式调用
+
+
+      return this;
+    },
+    find: function find(selector) {
+      var arr = [];
+
+      for (var index = 0; index < result.length; index++) {
+        arr = arr.concat(Array.from(result[index].querySelectorAll(selector)));
+      } //返回当前层的引用
+
+
+      arr.oldApi = this;
+      var obj = jquery(arr);
+      return obj;
+    },
+    oldApi: result.oldApi,
+    end: function end() {
+      console.dir(this);
+      return this.oldApi;
+    },
+    each: function each(fn) {
+      for (var index = 0; index < result.length; index++) {
+        fn.call(null, result[index], index);
+      }
+
+      return this;
+    },
+    parent: function parent() {
+      var arr = [];
+      this.each(function (e) {
+        if (arr.indexOf(e.parentNode) < 0) {
+          arr.push(e.parentNode);
+        }
+      });
+      return jquery(arr);
+    },
+    children: function children() {
+      var arr = [];
+      this.each(function (e) {
+        if (arr.indexOf(e.children) < 0) {
+          // 展开操作符
+          arr.push.apply(arr, _toConsumableArray(e.children));
+        }
+      });
+      return jquery(arr);
+    },
+    print: function print() {
+      console.log(result);
+    }
+  };
+};
 },{}],"C:/Users/Administrator/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -155,7 +225,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51766" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49628" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -331,5 +401,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/Administrator/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","main.js"], null)
-//# sourceMappingURL=/main.1f19ae8e.js.map
+},{}]},{},["C:/Users/Administrator/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","jquery.js"], null)
+//# sourceMappingURL=/jquery.7a6e0748.js.map

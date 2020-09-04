@@ -117,16 +117,140 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"main.js":[function(require,module,exports) {
-// jquery('.color').addClass('red').addClass('blue').addClass('green').each((a,b) => {console.log(`K:${b}  V:${a.innerText}`)});;
-// jquery('.color1').find('.child').addClass('second').end().addClass('end');
-// jquery('.child').parent().print();
-// jquery('.color1').children().print();
-// $('#test').find('.child').addClass('red');
-// $('#test').siblings().print();
-console.log($('#test').index());
-$('#test').next().print();
-$('#test').prev().print();
+})({"jquery2.js":[function(require,module,exports) {
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+window.jquery = function (selectorOrArray) {
+  var elements;
+
+  if (typeof selectorOrArray === 'string') {
+    elements = document.querySelectorAll(selectorOrArray);
+  } else if (selectorOrArray instanceof Array) {
+    elements = selectorOrArray;
+  }
+
+  return {
+    addClass: function addClass(className) {
+      for (var index = 0; index < elements.length; index++) {
+        elements[index].classList.add(className);
+      }
+
+      return this;
+    },
+    oldApi: elements.oldApi,
+    find: function find(selector) {
+      var arr = [];
+
+      for (var index = 0; index < elements.length; index++) {
+        arr = arr.concat(Array.from(elements[index].querySelectorAll(selector)));
+      }
+
+      arr.oldApi = this;
+      return jquery(arr);
+    },
+    end: function end() {
+      return this.oldApi;
+    },
+    each: function each(fn) {
+      for (var index = 0; index < elements.length; index++) {
+        fn.call(null, elements[index], index);
+      }
+    },
+    print: function print() {
+      for (var index = 0; index < elements.length; index++) {
+        console.log(elements[index]);
+      }
+    },
+    children: function children() {
+      var arr = [];
+      this.each(function (e) {
+        // 展开操作符
+        arr.push.apply(arr, _toConsumableArray(e.children));
+      });
+      return jquery(arr);
+    },
+    parent: function parent() {
+      var arr = [];
+
+      for (var index = 0; index < elements.length; index++) {
+        if (arr.indexOf(elements[index].parentNode) < 0) {
+          arr.push(elements[index].parentNode);
+        }
+      }
+
+      return jquery(arr);
+    },
+    siblings: function siblings() {
+      var arr = [];
+
+      var _loop = function _loop(index) {
+        arr = arr.concat(Array.from(elements[index].parentNode.children).filter(function (e) {
+          return e != elements[index];
+        }));
+      };
+
+      for (var index = 0; index < elements.length; index++) {
+        _loop(index);
+      }
+
+      return jquery(arr);
+    },
+    index: function index() {
+      // 假设查询id
+      var first = elements[0];
+      var list = [];
+      list.push.apply(list, _toConsumableArray(first.parentNode.children));
+      console.dir(list);
+      var index;
+
+      for (index = 0; index < list.length; index++) {
+        if (list[index] === first) {
+          break;
+        }
+      }
+
+      return index;
+    },
+    next: function next() {
+      // 假设查询id
+      var node = elements[0];
+      var x = node.nextSibling;
+
+      while (x && x.nodeType === 3) {
+        x = x.nextSibling;
+      }
+
+      var arr = [];
+      arr.push(x);
+      return jquery(arr);
+    },
+    prev: function prev() {
+      // 假设查询id
+      var node = elements[0];
+      var x = node.previousSibling;
+
+      while (x && x.nodeType === 3) {
+        x = x.previousSibling;
+      }
+
+      var arr = [];
+      arr.push(x);
+      return jquery(arr);
+    }
+  };
+};
+
+window.$ = window.jquery;
 },{}],"C:/Users/Administrator/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -331,5 +455,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/Administrator/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","main.js"], null)
-//# sourceMappingURL=/main.1f19ae8e.js.map
+},{}]},{},["C:/Users/Administrator/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","jquery2.js"], null)
+//# sourceMappingURL=/jquery2.18cef4d6.js.map
