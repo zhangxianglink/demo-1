@@ -36,8 +36,33 @@ const c = {
 EventBus 作为事件总线，通过发布，订阅的模式来完成信息的传递，事件的触发。
 主要API, on （监听事件）， trigger （触发事件）, off （取消监听）方法。
 用于模块间的通讯， view 组件层面，父子组件、兄弟组件通信都可以使 eventbus 处理
-eventBus.trigger('something'); 发布事件
-eventBus.on('something', ()=> { ...doing }) 订阅事件
+// 组件通信，一个触发与监听的过程
+class EventEmitter {
+  constructor () {
+    // 存储事件
+    this.events = this.events || new Map()
+  }
+  // 监听事件
+  addListener (type, fn) {
+    if (!this.events.get(type)) {
+      this.events.set(type, fn)
+    }
+  }
+  // 触发事件
+  emit (type) {
+    let handle = this.events.get(type)
+    handle.apply(this, [...arguments].slice(1))
+  }
+}
+ 
+// 测试
+let emitter = new EventEmitter()
+// 监听事件
+emitter.addListener('ages', age => {
+  console.log(age)
+})
+// 触发事件
+emitter.emit('ages', 18)  // 18
 ```
 
 3. 表驱动编程
