@@ -47,7 +47,9 @@
    >```
    >
    >template ，render都是创建html模板，但是template用法简单，但不够灵活，只用简单的组件。
+   >
    >render采用js编写的方式，无需编译，操作灵活适用于复杂组件的操作。
+   >
    >生产环境多使用非完整版，因为没有编译器，减少用户下载压力
 
 3. >首先在[codesandbox](https://codesandbox.io/)中点击 creat sandbox 创建一个vue沙盒；
